@@ -2,11 +2,12 @@
 include_once(dirname(__FILE__)."/models/Country.php");
 include_once(dirname(__FILE__)."/models/City.php");
 include_once(dirname(__FILE__)."/models/User.php");
+include_once(dirname(__FILE__)."/helpers/CHtml.php");
 
-$results = Country::getAll();
+$results = Country::getNames();
 
-echo "<h1>Country:</h1><br />";
-print_r($results);
+echo "<h1>Country Names:</h1><br />";
+print_r(CHtml::compileSelectOptions($results));
 echo "<br /><br /><br />";
 
 $results = City::get(1);

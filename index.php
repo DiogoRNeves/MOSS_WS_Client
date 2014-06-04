@@ -10,21 +10,53 @@
 
 	<div id="listaDeUtilizadores" />
 	
-	<form id="registarUtilizador" action="actions/createUser.php" method="POST">
-		Username: <input class="input" type="text" name="username"/><br />
-		Password: <input class="input" type="password" name="password"/><br />
-		Nome: <input class="input" type="text" name="name"/><br />
-		Website: <input class="input" type="text" name="site"/><br />
-		País: 
-			<select class="input" name="country" />
-				<?php
-					require_once("helpers/CHtml.php");
-					require_once("models/Country.php");
-					echo CHtml::compileSelectOptions(getNames(Country::getAll());
-				?>
-			</select><br />
-		Cidade:  <input style="visibility:hidden" class="input" type="text" name="username"/><br />
+	<form id="registarUtilizador" action="actions/createUser.php" 
+		method="POST" action="createUser.php">
+		<table>
+			<tr>
+				<td>Username:</td>
+				<td>
+					<input class="input" type="text" name="username"/>
+				</td>
+			</tr>
+			<tr>
+				<td>Password:</td>
+				<td>
+					<input class="input" type="password" name="password"/>
+				</td>
+			</tr>
+			<tr>
+				<td>Nome:</td>
+				<td>
+					<input class="input" type="text" name="name"/>
+				</td>
+			</tr>
+			<tr>
+				<td>Website:</td>
+				<td>
+					<input class="input" type="text" name="site"/>
+				</td>
+			</tr>
+			<tr>
+				<td>País:</td>
+				<td>
+					<select class="input" name="country" />
+						<?php
+							require_once("helpers/CHtml.php");
+							require_once("models/Country.php");
+							echo CHtml::compileSelectOptions(Country::getNames());
+						?>
+					</select>
+				</td>
+			</tr>
+			<tr id="citySelector" style="visibility:hidden">
+				<td>Cidade:</td>
+				<td>
+					<input class="input" type="text" name="username"/>
+				</td>
+			</tr>
+		</table>
+		<button type="submit" value="Submit">Criar</button>
 	</form>
-	php
 </body>
 </html>
