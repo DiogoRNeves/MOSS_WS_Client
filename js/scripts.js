@@ -70,8 +70,9 @@ function getDeleteLink(id) {
 }
 
 $("#submitButton").click(function() {
-	if (isValidFields($(this).parent())) {
-		alert("tudo OK");
+	form = $(this).parent();
+	if (isValidFields(form)) {
+		form.submit();
 	} else {		
 		alert("Não preencheu todos os campos obrigatórios.");
 	}
