@@ -55,6 +55,15 @@ function getDeleteHTML(id) {
 }
 
 function deleteUser(id) {
-	//TODO: write the code
-	alert(id);
+	if (confirm("Tem a certeza que deseja eliminar este utilizador?"))
+		var url = getDeleteLink(id);
+		var form = $('<form action="' + url + '" method="post">' +
+		  '<input type="text" name="id" value="' + id + '" />' +
+		  '</form>');
+		//$('body').append(form);  // This line is not necessary
+		$(form).submit();
+}
+
+function getDeleteLink(id) {
+	return "actions/deleteUser.php"
 }
