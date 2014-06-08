@@ -7,7 +7,7 @@ include_once(dirname(__FILE__)."/helpers/CHtml.php");
 $results = Country::getNames();
 
 echo "<h1>Country Names:</h1><br />";
-print_r(CHtml::compileSelectOptions($results));
+print_r(htmlentities((CHtml::compileSelectOptions($results))));
 echo "<br /><br /><br />";
 
 $results = City::get(1);

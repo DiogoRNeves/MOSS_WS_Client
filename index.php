@@ -2,15 +2,33 @@
 <head>
 	<meta charset="utf-8" />
 	<title>Index para o registo de utilizadores</title>
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
 </head>
 
 <body>
-	<button id="registerUser">Registar novo utilizador</button><br />
-	<button id="listarUtilizadores">Listar utilizadores</button><br /><br /><br />
+	<h1>Escolha uma opção:</h1>
+	<button id="registerUser">Registar novo utilizador</button>
+	<button id="listUsers">Listar utilizadores</button><br /><br /><br />
 
-	<div id="listaDeUtilizadores" />
+	<div id="usersList">
+		<img id="loadingImage" src="img/loading.gif"/>
+		<table id="resultsTable">
+			<thead>
+				<tr>
+					<td>Nome</td>
+					<td>Email</td>
+					<td>Website</td>
+					<td>País</td>
+					<td>Cidade</td>
+					<td>Operações</td>
+				</tr>
+			<thead>
+			<tbody>
+			</tbody>
+		</table>
+	</div>
 	
-	<form id="registarUtilizador" action="actions/createUser.php" 
+	<form id="registerUserForm" action="actions/createUser.php" 
 		method="POST" action="createUser.php">
 		<table>
 			<tr>
@@ -49,7 +67,7 @@
 					</select>
 				</td>
 			</tr>
-			<tr id="citySelector" style="visibility:hidden">
+			<tr id="citySelector">
 				<td>Cidade:</td>
 				<td>
 					<input class="input" type="text" name="username"/>
@@ -58,5 +76,7 @@
 		</table>
 		<button type="submit" value="Submit">Criar</button>
 	</form>
+	<script src="//code.jquery.com/jquery-latest.min.js"></script>
+	<script src="js/scripts.js"></script>
 </body>
 </html>
