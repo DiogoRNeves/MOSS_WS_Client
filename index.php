@@ -34,19 +34,25 @@
 			<tr>
 				<td>Username:</td>
 				<td>
-					<input class="input" type="text" name="username"/>
+					<input class="input" type="text" name="username" required/>
 				</td>
 			</tr>
 			<tr>
 				<td>Password:</td>
 				<td>
-					<input class="input" type="password" name="password"/>
+					<input class="input" type="password" name="password" required/>
 				</td>
 			</tr>
 			<tr>
 				<td>Nome:</td>
 				<td>
-					<input class="input" type="text" name="name"/>
+					<input class="input" type="text" name="name" required/>
+				</td>
+			</tr>			
+			<tr>
+				<td>Email:</td>
+				<td>
+					<input class="input" type="text" name="email"/>
 				</td>
 			</tr>
 			<tr>
@@ -58,7 +64,10 @@
 			<tr>
 				<td>País:</td>
 				<td>
-					<select class="input" name="country" />
+					<select class="input" name="country" id="country"/>
+						<option selected="selected" value=0>
+							Escolha um país
+						</option>
 						<?php
 							require_once("helpers/CHtml.php");
 							require_once("models/Country.php");
@@ -70,11 +79,15 @@
 			<tr id="citySelector">
 				<td>Cidade:</td>
 				<td>
-					<input class="input" type="text" name="username"/>
+					<select class="input" name="username" id="city" required>						
+						<option selected="selected" value=0>
+							Escolha uma cidade
+						</option>
+					</select>
 				</td>
 			</tr>
 		</table>
-		<button type="submit" value="Submit">Criar</button>
+		<button id="submitButton" type="button">Criar</button>
 	</form>
 	<script src="//code.jquery.com/jquery-latest.min.js"></script>
 	<script src="js/scripts.js"></script>
