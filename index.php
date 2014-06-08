@@ -32,37 +32,37 @@
 		method="POST" action="createUser.php">
 		<table>
 			<tr>
-				<td>Username:</td>
+				<td>Username</td>
 				<td>
 					<input class="input" type="text" name="username" required/>
 				</td>
 			</tr>
 			<tr>
-				<td>Password:</td>
+				<td>Password</td>
 				<td>
 					<input class="input" type="password" name="password" required/>
 				</td>
 			</tr>
 			<tr>
-				<td>Nome:</td>
+				<td>Nome</td>
 				<td>
 					<input class="input" type="text" name="name" required/>
 				</td>
 			</tr>			
 			<tr>
-				<td>Email:</td>
+				<td>Email</td>
 				<td>
 					<input class="input" type="text" name="email"/>
 				</td>
 			</tr>
 			<tr>
-				<td>Website:</td>
+				<td>Website</td>
 				<td>
 					<input class="input" type="text" name="site"/>
 				</td>
 			</tr>
 			<tr>
-				<td>País:</td>
+				<td>País</td>
 				<td>
 					<select class="input" name="country" id="country"/>
 						<option selected="selected" value=0>
@@ -77,7 +77,7 @@
 				</td>
 			</tr>
 			<tr id="citySelector">
-				<td>Cidade:</td>
+				<td>Cidade</td>
 				<td>
 					<select class="input" name="username" id="city" required>						
 						<option selected="selected" value=0>

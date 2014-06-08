@@ -6,6 +6,15 @@ $usersList = $("#usersList");
 $registerUserForm = $("#registerUserForm");
 $citySelector = $("#citySelector");
 
+
+$(document).ready(function () {
+	$('input,textarea,select').filter('[required]').each(function() {
+		$(this).parent().siblings().each(function() {
+			$(this).append(" *");
+		});
+	});
+});
+
 $("#registerUser").click(function() {
 	$usersList.hide($slideSpeed);
 	$registerUserForm.show($slideSpeed);
