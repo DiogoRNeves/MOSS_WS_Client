@@ -46,6 +46,7 @@ function appendUserTableRows(data) {
 	$tableBody = $resultsTable.find("tbody").remove();	
 	$(data).find("user").each(function() {
 		var tableRow = "<tr>";
+	    tableRow += tableData($(this).find("username:first").text());
 	    tableRow += tableData($(this).find("name:first").text());
 	    tableRow += tableData($(this).find("email:first").text());
 	    tableRow += tableData($(this).find("site:first").text());

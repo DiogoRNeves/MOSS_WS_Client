@@ -15,6 +15,7 @@
 		<table id="resultsTable">
 			<thead>
 				<tr>
+					<td>Username</td>
 					<td>Nome</td>
 					<td>Email</td>
 					<td>Website</td>
