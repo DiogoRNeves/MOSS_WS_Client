@@ -35,7 +35,7 @@ abstract class CModel {
 
 	public static function add($data) {
 		$uri = self::getWebServiceURI();
-		$xmlResponse = CRestAPI::callAPI("PUT", $uri, $data);
+		$xmlResponse = CRestAPI::callAPI("POST", $uri, $data);
 		return new SimpleXMLElement($xmlResponse);
 	}
 }

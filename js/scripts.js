@@ -115,7 +115,7 @@ function populateCityOptions(id) {
 	  url: $webServiceRoot + "city/" + id
 	});
 	ajaxCityResult.done(function( data ) {
-		$city = $("#city");
+		$city = $("#cityId");
 		removeOptions($city);
 		addOptions($city, data);
 	  });

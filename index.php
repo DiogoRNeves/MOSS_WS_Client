@@ -65,7 +65,7 @@
 			<tr>
 				<td>País</td>
 				<td>
-					<select class="input" name="country" id="country"/>
+					<select class="input" name="countryId" id="country"/>
 						<option selected="selected" value=0>
 							Escolha um país
 						</option>
@@ -80,7 +80,7 @@
 			<tr id="citySelector">
 				<td>Cidade</td>
 				<td>
-					<select class="input" name="username" id="city" required>						
+					<select class="input" name="cityId" id="cityId" required>						
 						<option selected="selected" value=0>
 							Escolha uma cidade
 						</option>
