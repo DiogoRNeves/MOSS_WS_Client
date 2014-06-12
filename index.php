@@ -70,9 +70,13 @@
 							Escolha um país
 						</option>
 						<?php
+                                                    try {
 							require_once("helpers/CHtml.php");
 							require_once("models/Country.php");
 							echo CHtml::compileSelectOptions(Country::getNames());
+                                                    } catch (Exception $e) {
+                                                        echo $e;
+                                                    }
 						?>
 					</select>
 				</td>

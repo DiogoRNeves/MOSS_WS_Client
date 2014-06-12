@@ -1,5 +1,5 @@
 $slideSpeed = 700;
-$webServiceRoot = "http://localhost/moss-ws/rest/";
+$webServiceRoot = "http://localhost:8080/moss-ws/rest/";
 $resultsTable = $("#resultsTable");
 $loadingImage = $("#loadingImage");
 $usersList = $("#usersList");
@@ -29,6 +29,7 @@ $("#listUsers").click(function() {
 
 function sendAllUsersAJAX() {
 	ajaxResult = $.ajax({
+          cache: false,
 	  url: $webServiceRoot + "user/getall"
 	});
 	ajaxResult.done(function( data ) {   
@@ -46,12 +47,12 @@ function appendUserTableRows(data) {
 	$tableBody = $resultsTable.find("tbody").remove();	
 	$(data).find("user").each(function() {
 		var tableRow = "<tr>";
-	    tableRow += tableData($(this).find("username:first").text());
+	    tableRow += tableData($(this).find("username").text());
 	    tableRow += tableData($(this).find("name:first").text());
-	    tableRow += tableData($(this).find("email:first").text());
-	    tableRow += tableData($(this).find("site:first").text());
-	    tableRow += tableData($(this).find("country:first").find("name:first").text());	    
-	    tableRow += tableData($(this).find("city:first").find("name:first").text());	    
+	    tableRow += tableData($(this).find("email").text());
+	    tableRow += tableData($(this).find("site").text());
+	    tableRow += tableData($(this).find("country").find("name:first").text());	    
+	    tableRow += tableData($(this).find("city").find("name:first").text());	    
 	    tableRow += tableData(getDeleteHTML($(this).find("id:first").text()));	
 	    tableRow += "</tr>";
 	    $resultsTable.append(tableRow);
@@ -111,7 +112,8 @@ $("#country").change(function() {
 });
 
 function populateCityOptions(id) {
-	ajaxCityResult = $.ajax({
+	ajaxCityResult = $.ajax({            
+          cache: false,
 	  url: $webServiceRoot + "city/" + id
 	});
 	ajaxCityResult.done(function( data ) {

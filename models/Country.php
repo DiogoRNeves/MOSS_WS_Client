@@ -15,5 +15,3 @@ class Country extends CModel {
 		return $result;
 	}
 }
-
-?>

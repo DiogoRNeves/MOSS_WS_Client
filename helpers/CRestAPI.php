@@ -15,16 +15,21 @@ class CRestAPI {
 	        case "POST":
 	            curl_setopt($curl, CURLOPT_POST, 1);
 
-	            if ($data)
-	                curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
-	            break;
+	            if ($data) {
+                        curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+                    }
+                break;
 	        case "PUT":
 	            curl_setopt($curl, CURLOPT_PUT, 1);
 	            break;
+                case "DELETE":
+                    curl_setopt($curl, CURLOPT_CUSTOMREQUEST, 'DELETE');
+                    break;
 	        default:
-	            if ($data)
-	                $url = sprintf("%s?%s", $url, http_build_query($data));
-	    }
+	            if ($data) {
+                    $url = sprintf("%s?%s", $url, http_build_query($data));
+                }
+        }
 
 	    // Optional Authentication:
 	    //curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
@@ -36,5 +41,3 @@ class CRestAPI {
 	    return curl_exec($curl);
 	}	
 }
-
-?>
