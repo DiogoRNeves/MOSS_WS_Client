@@ -1,3 +1,3 @@
 <?php
-	$wsURL = "http://localhost/moss-ws/rest/";
+	$wsURL = "http://localhost:8080/moss-ws/rest/";
 ?>
