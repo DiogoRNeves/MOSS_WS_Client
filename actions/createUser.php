@@ -18,8 +18,10 @@ $html = "<html>
         "password" => $_POST["password"],
         "email" => $_POST["email"],
         "site" => $_POST["site"],
-        "cityId" => $_POST["name"]
+        "cityId" => $_POST["cityId"]
     );
+    print_r($myData);
+    
     $response = User::add($myData);
     $deleteOK = $response instanceof SimpleXMLElement;
     if ($deleteOK) {
