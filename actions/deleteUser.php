@@ -1,22 +1,24 @@
 <?php
-	include_once("../models/User.php");
-	User::delete($_POST['id']);
-?>
-
-
-<html>
+$html = "<html>
 <head>
-	<meta charset="utf-8" />
-	<title>Criação de utilizador</title>
+	<meta charset=\"utf-8\" />
+	<title>Eliminação de utilizador</title>
 </head>
 
 <body>
 
-	O seu pedido para eliminar o utilizador foi enviado ao servidor! <br />
+	O utilizador foi eliminado! <br />
 	A redirecionar para a página inicial.
-
-	<?php
-		header('Refresh: 5; "../"');
-	?>
 </body>
-</html>
+</html>";
+    include_once("../models/User.php");
+    $response = User::delete($_POST['id']);
+    $deleteOK = $response instanceof SimpleXMLElement;
+    if ($deleteOK) {
+	header('Refresh: 5; "../"');
+        echo $html;
+    } else {
+        echo $response;
+    }
+
+

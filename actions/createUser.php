@@ -1,21 +1,30 @@
 <?php
-	include_once("../models/User.php");
-	User::add($_POST);
-?>
-
-<html>
+$html = "<html>
 <head>
-	<meta charset="utf-8" />
+	<meta charset=\"utf-8\" />
 	<title>Criação de utilizador</title>
 </head>
 
 <body>
 
-	O seu pedido para criar o utilizador foi enviado ao servidor! <br />
+	O utilizador foi criado! <br />
 	A redirecionar para a página inicial.
-
-	<?php
-		header('Refresh: 5; "../"');
-	?>
 </body>
-</html>
+</html>";
+    include_once("../models/User.php");
+    $myData = array(
+        "name" => $_POST["name"],
+        "username" => $_POST["username"],
+        "password" => $_POST["password"],
+        "email" => $_POST["email"],
+        "site" => $_POST["site"],
+        "cityId" => $_POST["name"]
+    );
+    $response = User::add($myData);
+    $deleteOK = $response instanceof SimpleXMLElement;
+    if ($deleteOK) {
+	header('Refresh: 5; "../"');
+        echo $html;
+    } else {
+        echo $response;
+    }
