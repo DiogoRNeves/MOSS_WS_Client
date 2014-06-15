@@ -20,7 +20,6 @@ $html = "<html>
         "site" => $_POST["site"],
         "cityId" => $_POST["cityId"]
     );
-    print_r($myData);
     
     $response = User::add($myData);
     $deleteOK = $response instanceof SimpleXMLElement;
