@@ -29,8 +29,11 @@
 		</table>
 	</div>
 	
-	<form id="registerUserForm" action="actions/createUser.php" 
-		method="POST" action="createUser.php">
+        <!--action="actions/createUser.php" -->
+        <!--action="http://localhost:8080/moss-ws/rest/user" -->
+        
+        <form id="registerUserForm" action="actions/createUser.php"
+		method="POST">
 		<table>
 			<tr>
 				<td>Username</td>
