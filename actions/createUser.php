@@ -1,31 +1,22 @@
 <?php
-$html = "<html>
-<head>
+error_reporting(E_ERROR);
+$htmlStart = "<html><head>
 	<meta charset=\"utf-8\" />
 	<title>Criação de utilizador</title>
 </head>
 
-<body>
+<body>";
+$htmlClose = " <br /> A redirecionar para a página inicial.</body></html>";
 
-	O utilizador foi criado! <br />
-	A redirecionar para a página inicial.
-</body>
-</html>";
     include_once("../models/User.php");
-    $myData = array(
-        "name" => $_POST["name"],
-        "username" => $_POST["username"],
-        "password" => $_POST["password"],
-        "email" => $_POST["email"],
-        "site" => $_POST["site"],
-        "cityId" => $_POST["cityId"]
-    );
     
-    $response = User::add($myData);
-    $deleteOK = $response instanceof SimpleXMLElement;
-    if ($deleteOK) {
-	header('Refresh: 5; "../"');
-        echo $html;
+    $response = User::add($_POST);
+    $createOK = $response instanceof SimpleXMLElement;
+    header('Refresh: 5; "../"');
+    echo $htmlStart;
+    if ($createOK) {
+	echo "Utilizador criado com sucesso";
     } else {
-        echo $response;
+        echo "Houve um problema ao tentar criar o utilizador.";
     }
+    echo $htmlClose;
