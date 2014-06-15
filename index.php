@@ -28,9 +28,6 @@
 			</tbody>
 		</table>
 	</div>
-	
-        <!--action="actions/createUser.php" -->
-        <!--action="http://localhost:8080/moss-ws/rest/user" -->
         
         <form id="registerUserForm" action="actions/createUser.php"
 		method="POST">
@@ -98,6 +95,6 @@
 		<button id="submitButton" type="button">Criar</button>
 	</form>
 	<script src="//code.jquery.com/jquery-latest.min.js"></script>
-	<script src="js/scripts.js"></script>
+	<script src="js/scripts.php"></script>
 </body>
 </html>

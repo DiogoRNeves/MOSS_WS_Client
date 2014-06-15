@@ -39,5 +39,13 @@ class CRestAPI {
 	    curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
 
 	    return curl_exec($curl);
-	}	
+	}
+        
+        public static function compileXML($contents) {            
+                try {
+                    return new SimpleXMLElement($contents);
+                } catch (Exception $ex) {
+                    return $contents;
+                }
+        }
 }

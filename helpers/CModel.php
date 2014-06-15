@@ -11,9 +11,8 @@ abstract class CModel {
 
 	public static function get($id) {
 		$uri = self::getWebServiceURI() . "/" . $id;
-		//$uri = "http://localhost/moss-ws/rest/" . get_called_class() . "/getall";
-		$xmlResponse = CRestAPI::callAPI("GET", $uri);
-		return new SimpleXMLElement($xmlResponse);
+		$response = CRestAPI::callAPI("GET", $uri);
+		return CRestAPI::compileXML($response);
 	}
 
 	/*
@@ -22,29 +21,20 @@ abstract class CModel {
 	 */
 	public static function getAll($criteria = false) {
 		$uri = self::getWebServiceURI() . "/getall";
-		//$uri = "http://localhost/moss-ws/rest/" . get_called_class() . "/getall";
-		$xmlResponse = CRestAPI::callAPI("GET", $uri, $criteria);
-		return new SimpleXMLElement($xmlResponse);
+		$response = CRestAPI::callAPI("GET", $uri, $criteria);
+		return CRestAPI::compileXML($response);
 	}
 
 	public static function delete($id) {
 		$uri = self::getWebServiceURI() . "/" . $id;		
 		$response = CRestAPI::callAPI("DELETE", $uri, false);
-                try {
-                    return new SimpleXMLElement($response);
-                } catch (Exception $ex) {
-                    return $response;
-                }		
+                return CRestAPI::compileXML($response);		
 	}
 
 	public static function add($data) {
 		$uri = self::getWebServiceURI();
 		$response = CRestAPI::callAPI("POST", $uri, $data);
-                try {
-                    return new SimpleXMLElement($response);
-                } catch (Exception $ex) {
-                    return $response;
-                }
+                return CRestAPI::compileXML($response);
 	}
 }
 
